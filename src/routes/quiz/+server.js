@@ -5,15 +5,17 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const apiKey = '';
 
 const prompt = `
+    You are an advanced language teacher, fluent in both English and German.
+
     I need a set of 10 multiple choice questions. 
     * Each question consists of a German word (the "question"), and four English words (the "options").
     * One (and only one) of the English words is the correct translation for the German word (the "answer").
-    * Throughout your whole response, do not repeat any words.
+    * Throughout your whole response, do NOT repeat any words.
     * Your response must be in the form of a valid JSON string, ready to use, without the triple backtick format specifier.
 
     Your response must be formatted like this (but don't use these exact questions):
 
-    [{ "question": "Vogel", "options": [ "Deer", "Frog", "Bird", "Goat" ], "answer": "Bird" }, { "question": "Hemd", "options": [ "Shirt", "Hat", "Trousers", "Dress" ], "answer": "Shirt" }]
+    [{ "question": "Kolibri", "options": [ "Pigeon", "Eagle", "Parrot", "Hummingbird" ], "answer": "Hummingbird" }, { "question": "Kunstler", "options": [ "Builder", "Artist", "Magician", "Tailor" ], "answer": "Artist" }]
 `;
 
 export async function GET() {
@@ -35,29 +37,59 @@ export async function GET() {
     
         questions = JSON.parse(response);
     } else {
-        // Uses dummy data in the absence of an API key
+        // Uses prefetched dummy data in the absence of an API key
         questions = [
             {
                 question: 'Apfel',
-                options: [
-                    'Orange',
-                    'Apple',
-                    'Pear',
-                    'Banana',
-                ],
+                options: [ 'Orange', 'Apple', 'Pear', 'Banana', ],
                 answer: 'Apple',
             },
             {
                 question: 'Tante',
-                options: [
-                    'Uncle',
-                    'Aunt',
-                    'Niece',
-                    'Nephew',
-                ],
+                options: [ 'Uncle', 'Aunt', 'Niece', 'Nephew', ],
                 answer: 'Aunt',
             },
-        ];
+            {
+                question: 'Straße',
+                options: [ 'Road', 'River', 'Building', 'Park' ],
+                answer: 'Road'
+            },
+            {
+                question: 'Baum',
+                options: [ 'Car', 'Tree', 'Cat', 'Sun' ],
+                answer: 'Tree'
+            },
+            {
+                question: 'Buch',
+                options: [ 'Pen', 'Book', 'Window', 'Door' ],
+                answer: 'Book'
+            },
+            {
+                question: 'Fenster',
+                options: [ 'Wall', 'Window', 'Flower', 'Sky' ],
+                answer: 'Window'
+            },
+            {
+                question: 'Tisch',
+                options: [ 'Chair', 'Table', 'Lamp', 'Bed' ],
+                answer: 'Table'
+            },
+            {
+                question: 'Blume',
+                options: [ 'Rose', 'Tulip', 'Flower', 'Daisy' ],
+                answer: 'Flower'
+            },
+            {
+                question: 'Katze',
+                options: [ 'Bird', 'Cow', 'Cat', 'Horse' ],
+                answer: 'Cat'
+            },
+            {
+                question: 'Sonne',
+                options: [ 'Moon', 'Star', 'Sun', 'Planet' ],
+                answer: 'Sun'
+            },
+          ]
     }
 
     return json(questions);
