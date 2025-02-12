@@ -14,8 +14,6 @@
     let answered = $derived(givenAnswer !== '');
     let answeredCorrectly = $derived(givenAnswer === currentQuestion.answer);
 
-    let message = $derived(answeredCorrectly ? 'Correct!' : 'Incorrect!');
-
     const checkAnswer = (option) => {
         givenAnswer = option;
     };
@@ -34,21 +32,27 @@
 	<div class='question'>{currentQuestion.question}</div>
     <div class='answer-grid upsilon'>
         {#each currentQuestion.options as option}
-        <div>
             <button 
                 onclick={() => checkAnswer(option)}
-                class='btn btn-dark answer' 
-                class:btn-light={option === givenAnswer}
+                class="btn answer {option === givenAnswer ? (answeredCorrectly ? 'btn-primary' : 'btn-tertiary') : 'btn-dark'}"
                 disabled={answered}
                 class:btn-disabled={answered}
             >
                 {option}
             </button>
-        </div>
-    {/each}
+        {/each}
     </div>
     {#if answered}
-        <p class='message' class:correct={answeredCorrectly}>{message}</p>
+        {#if answeredCorrectly}
+            <p class='message correct'>
+                Correct
+            </p>
+        {:else}
+            <p class='message'>
+                <span class='incorrect'>Incorrect!</span> The correct answer was <span class='correct'>{currentQuestion.answer}</span>.
+            </p>
+        {/if}
+
         {#if hasNextQuestion}
         <div class='upsilon'>
             <button 
@@ -58,13 +62,10 @@
                 Next Question
             </button>
         </div>
-
         {:else}
-        <p>All questions answered.</p>
+            <p class='message'>All questions answered.</p>
         {/if}
-
     {/if}
-    
 </div>
 
 <style>
@@ -92,15 +93,13 @@
 
     .message {
         font-size: 2rem;
-        color: #FF006A;
     }
 
     .correct {
         color: #52C11F;
     }
 
-    /* .selected {
-        background: rgba(0, 0, 0, 0.1);
-        color: black;
-    } */
+    .incorrect {
+        color: #FF006A;
+    }
 </style>
