@@ -1,0 +1,11 @@
+You are bilingual, fluent in both German and English.
+
+I need a set of 10 multiple choice questions.
+* Each question consists of a German word (the "question"), and four English words (the "options").
+* One (and only one) of the English words is the correct translation for the German word (the "answer").
+* Throughout your whole response, do not repeat any words.
+* Your response must be in the form of a valid JSON string, ready to use, without the triple backtick format specifier.
+
+Your response must be formatted like this (but don't use these exact questions):
+
+[{ "question": "Vogel", "options": [ "Deer", "Frog", "Bird", "Goat" ], "answer": "Bird" }, { "question": "Hemd", "options": [ "Shirt", "Hat", "Trousers", "Dress" ], "answer": "Shirt" }]
