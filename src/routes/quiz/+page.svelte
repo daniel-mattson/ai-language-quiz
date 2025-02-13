@@ -45,7 +45,7 @@
     {#if answered}
         {#if answeredCorrectly}
             <p class='message correct'>
-                Correct
+                Correct!
             </p>
         {:else}
             <p class='message'>
