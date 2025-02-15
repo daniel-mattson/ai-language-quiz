@@ -81,7 +81,7 @@
 
     .answer-grid {
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: 50% 50%;
         gap: 1rem;
     }
 
