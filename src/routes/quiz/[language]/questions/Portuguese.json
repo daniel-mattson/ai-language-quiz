@@ -1,0 +1,52 @@
+[
+    {
+        "question": "Cabeleireiro",
+        "options": [ "Lawyer", "Teacher", "Plumber", "Hairdresser" ],
+        "answer": "Hairdresser"
+    },
+    {
+        "question": "Abraço",
+        "options": [ "Hug", "Kiss", "Wave", "Shake" ],
+        "answer": "Hug"
+    },
+    {
+        "question": "Feliz",
+        "options": [ "Sad", "Happy", "Angry", "Tired" ],
+        "answer": "Happy"
+    },
+    {
+        "question": "Lua",
+        "options": [ "Sun", "Moon", "Star", "Planet" ],
+        "answer": "Moon"
+    },
+    {
+        "question": "Livro",
+        "options": [ "Pen", "Paper", "Book", "Table" ],
+        "answer": "Book"
+    },
+    {
+        "question": "Cão",
+        "options": [ "Cat", "Dog", "Bird", "Fish" ],
+        "answer": "Dog"
+    },
+    {
+        "question": "Fogo",
+        "options": [ "Fire", "Earth", "Air", "Water" ],
+        "answer": "Water"
+    },
+    {
+        "question": "Árvore",
+        "options": [ "Farmer", "Field", "Tree", "Flower" ],
+        "answer": "Tree"
+    },
+    {
+        "question": "Amigo",
+        "options": [ "Friend", "Enemy", "Stranger", "Neighbor" ],
+        "answer": "Friend"
+    },
+    {
+        "question": "Mesa",
+        "options": [ "Chair", "Table", "Bed", "Sofa" ],
+        "answer": "Table"
+    }
+  ]
