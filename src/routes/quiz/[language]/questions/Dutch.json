@@ -8,5 +8,45 @@
         "question": "Tussendoortje",
         "options": [ "Snack", "Interview", "Exam", "Traffic Jam" ],
         "answer": "Snack"
+    },
+    {
+        "question": "Regenboog",
+        "options": [ "Rainbow", "Sun", "Cloud", "Storm" ],
+        "answer": "Rainbow"
+    },
+    {
+        "question": "Schaap",
+        "options": [ "Cow", "Sheep", "Goat", "Pig" ],
+        "answer": "Sheep"
+    },
+    {
+        "question": "Gebouw",
+        "options": [ "Building", "Field", "Car", "House" ],
+        "answer": "Building"
+    },
+    {
+        "question": "Appel",
+        "options": [ "Orange", "Banana", "Apple", "Pear" ],
+        "answer": "Apple"
+    },
+    {
+        "question": "Zon",
+        "options": [ "Moon", "Star", "Sun", "Planet" ],
+        "answer": "Sun"
+    },
+    {
+        "question": "Boom",
+        "options": [ "Flower", "Tree", "Leaf", "Grass" ],
+        "answer": "Tree"
+    },
+    {
+        "question": "Koffie",
+        "options": [ "Tea", "Water", "Coffee", "Juice" ],
+        "answer": "Coffee"
+    },
+    {
+        "question": "Zuster",
+        "options": [ "Aunt", "Sister", "Niece", "Cousin" ],
+        "answer": "Sister"
     }
 ]

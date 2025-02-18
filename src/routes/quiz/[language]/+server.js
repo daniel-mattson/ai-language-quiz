@@ -41,8 +41,6 @@ export async function GET({ params }) {
         }
     
         questions = JSON.parse(response);
-
-        console.log(questions);
     } else {
         // Uses prefetched dummy data in the absence of an API key
         questions = {
@@ -50,8 +48,6 @@ export async function GET({ params }) {
             Dutch: dutchQuestions,
             Portuguese: portugueseQuestions,
         }[language];
-
-        console.log({ questions });
     }
 
     return json(questions);
