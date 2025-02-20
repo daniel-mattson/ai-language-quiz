@@ -1,8 +1,11 @@
 <script>
 	import '../button-styles.css';
 
-    const { data } = $props();
-    const questions = data.questions ?? [];
+    const { form, data } = $props();
+    // In the absense of form data, loads the default questions
+    // This happens when you load /quiz/[language] directly, instead of being redirected there from the form in /quiz
+    const questions = (form ? form.questions : data.questions) ?? [];
+    const { status, statusText, reason } = form ?? data;
 
     let questionNumber = $state(0);
 
@@ -70,8 +73,8 @@
     </div>
 {:else}
     <div class='error'>
-        Error: {data.status} {data.statusText}<br /><br />
-        Reason: {data.reason}
+        Error: {status} {statusText}<br /><br />
+        Reason: {reason}
     </div>
 {/if}
 

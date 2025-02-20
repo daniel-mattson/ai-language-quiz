@@ -12,7 +12,7 @@
     let cannotStart = $derived(!useSavedQuestions && key === '')
 </script>
 
-<div class='text-column quiz-settings'>
+<form method="POST" action="/quiz/{language}" class='text-column quiz-settings'>
     <div class='select-language'>
         <label for="language" class='label'>Select language:</label>
         <select name="language" id="language" bind:value={language} class='select'>
@@ -24,13 +24,13 @@
 
     <div class='use-saved-questions'>
         <label class='radio'>
-            <input  class='radio' type='radio' name='use-saved-questions' value={false} bind:group={useSavedQuestions} />
+            <input class='radio' type='radio' name='use-saved-questions' value={false} bind:group={useSavedQuestions} />
             Get questions from Gemini
         </label>
         <br />
         <label class='text-input-label {useSavedQuestions ? 'disabled-label' : ''}'>
             Gemini API Key:
-            <input class='text-input' type='text' disabled={useSavedQuestions} bind:value={key} />
+            <input class='text-input' type='text' disabled={useSavedQuestions} bind:value={key} name='key' />
             <br />
             <span class='info'>API Keys can be obtained from <a href='https://aistudio.google.com/apikey' target='_blank' rel='noopener noreferrer'>aistudio.google.com/apikey</a></span>
         </label>
@@ -39,17 +39,14 @@
             <input class='radio' type='radio' name='use-saved-questions' value={true} bind:group={useSavedQuestions} />
             Use saved questions
         </label>
-
     </div>
 
     <div class='start-button'>
-        <a href='/quiz/{language}?key={key}'>
-            <div class='upsilon'>
-                <button class="btn btn-dark {cannotStart ? 'btn-disabled' : ''}" disabled={cannotStart}>Start the quiz</button>
-            </div>
-        </a>
+        <div class='upsilon'>
+            <button class="btn btn-dark {cannotStart ? 'btn-disabled' : ''}" disabled={cannotStart}>Start the quiz</button>
+        </div>
     </div>
-</div>
+</form>
 
 <style>
     .quiz-settings {
