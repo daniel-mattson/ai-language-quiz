@@ -1,10 +1,13 @@
-export async function load({ fetch, params }) {
-    const { language } = params; 
-    const response = await fetch(`/quiz/${language}`);
-    const questions = await response.json();
+export async function load({ fetch, params, url }) {
+    const { language } = params;
+    const { searchParams } = url;
+    const key = searchParams.get('key');
+
+    const response = await fetch(`/quiz/${language}?key=${key}`);
+    const data = await response.json();
 
     if (response.ok) {
-        return { questions };
+        return data;
     }
 
     return {

@@ -2,7 +2,7 @@
 	import '../button-styles.css';
 
     const { data } = $props();
-    const { questions } = data;
+    const questions = data.questions ?? [];
 
     let questionNumber = $state(0);
 
@@ -12,7 +12,7 @@
     let givenAnswer = $state('');
 
     let answered = $derived(givenAnswer !== '');
-    let answeredCorrectly = $derived(givenAnswer === currentQuestion.answer);
+    let answeredCorrectly = $derived(givenAnswer === currentQuestion?.answer);
 
     const checkAnswer = (option) => {
         givenAnswer = option;
@@ -28,45 +28,53 @@
 	<title>Quiz</title>
 </svelte:head>
 
-<div class='quiz'>
-	<div class='question'>{currentQuestion.question}</div>
-    <div class='answer-grid upsilon'>
-        {#each currentQuestion.options as option}
-            <button 
-                onclick={() => checkAnswer(option)}
-                class="btn answer {option === givenAnswer ? (answeredCorrectly ? 'btn-primary' : 'btn-tertiary') : 'btn-dark'}"
-                disabled={answered}
-                class:btn-disabled={answered}
-            >
-                {option}
-            </button>
-        {/each}
-    </div>
-    {#if answered}
-        {#if answeredCorrectly}
-            <p class='message correct'>
-                Correct!
-            </p>
-        {:else}
-            <p class='message'>
-                <span class='incorrect'>Incorrect!</span> The correct answer was <span class='correct'>{currentQuestion.answer}</span>.
-            </p>
-        {/if}
-
-        {#if hasNextQuestion}
-        <div class='upsilon'>
-            <button 
-                class='btn btn-dark'
-                onclick={loadNextQuestion}
-            >
-                Next Question
-            </button>
+{#if questions.length}
+    <div class='quiz'>
+    	<div class='question'>{currentQuestion.question}</div>
+        <div class='answer-grid upsilon'>
+            {#each currentQuestion.options as option}
+                <button 
+                    onclick={() => checkAnswer(option)}
+                    class="btn answer {option === givenAnswer ? (answeredCorrectly ? 'btn-primary' : 'btn-tertiary') : 'btn-dark'}"
+                    disabled={answered}
+                    class:btn-disabled={answered}
+                >
+                    {option}
+                </button>
+            {/each}
         </div>
-        {:else}
-            <p class='message'>All questions answered.</p>
+        {#if answered}
+            {#if answeredCorrectly}
+                <p class='message correct'>
+                    Correct!
+                </p>
+            {:else}
+                <p class='message'>
+                    <span class='incorrect'>Incorrect!</span> The correct answer was <span class='correct'>{currentQuestion.answer}</span>.
+                </p>
+            {/if}
+
+            {#if hasNextQuestion}
+            <div class='upsilon'>
+                <button 
+                    class='btn btn-dark'
+                    onclick={loadNextQuestion}
+                >
+                    Next Question
+                </button>
+            </div>
+            {:else}
+                <p class='message'>All questions answered.</p>
+            {/if}
         {/if}
-    {/if}
-</div>
+    </div>
+{:else}
+    <div class='error'>
+        Error: {data.status} {data.statusText}<br /><br />
+        Reason: {data.reason}
+    </div>
+{/if}
+
 
 <style>
     .quiz {
@@ -101,5 +109,12 @@
 
     .incorrect {
         color: #FF006A;
+    }
+
+    .error {
+        text-align: center;
+        margin-top: 1rem;
+        color: #FF006A;
+        font-size: 1.5rem;
     }
 </style>
