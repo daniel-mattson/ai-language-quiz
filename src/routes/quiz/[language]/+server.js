@@ -5,13 +5,14 @@ import germanQuestions from './questions/German.json';
 import dutchQuestions from './questions/Dutch.json';
 import portugueseQuestions from './questions/Portuguese.json';
 
-// Enter a valid API Key here. One can be obtained from https://aistudio.google.com/apikey
-const apiKey = '';
+export async function GET({ params, url }) {
+    const { searchParams } = url;
+    const apiKey = searchParams.get('key');
 
-export async function GET({ params }) {
-    const { language } = params;
+    let { language } = params;
     let questions;
-    if (apiKey.length) {
+    if (apiKey?.length && apiKey !== 'null') {
+
         const genAI = new GoogleGenerativeAI(apiKey);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
@@ -29,8 +30,14 @@ export async function GET({ params }) {
             [{ "question": "Kolibri", "options": [ "Pigeon", "Eagle", "Parrot", "Hummingbird" ], "answer": "Hummingbird" }, { "question": "Kunstler", "options": [ "Builder", "Artist", "Magician", "Tailor" ], "answer": "Artist" }]
         `;
         
-        const result = await model.generateContent(prompt);
-    
+        let result;
+        try {
+            result = await model.generateContent(prompt);
+        } catch (error) {
+            const { status, statusText, errorDetails } = error;
+            const reason = errorDetails.find(detail => detail.reason).reason;
+            return json({ status, statusText, reason });
+        }
         let response = result.response.text();
     
         while (response[0] !== '[') {
@@ -43,12 +50,13 @@ export async function GET({ params }) {
         questions = JSON.parse(response);
     } else {
         // Uses prefetched dummy data in the absence of an API key
+        language = language.toLowerCase();
         questions = {
-            German: germanQuestions,
-            Dutch: dutchQuestions,
-            Portuguese: portugueseQuestions,
+            german: germanQuestions,
+            dutch: dutchQuestions,
+            portuguese: portugueseQuestions,
         }[language];
     }
 
-    return json(questions);
+    return json({ questions });
 };
