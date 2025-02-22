@@ -1,0 +1,52 @@
+[
+    {
+        "question": "Nuage",
+        "options": [ "Sky", "Cloud", "Breeze", "Storm" ],
+        "answer": "Cloud"
+    },
+    {
+        "question": "Oiseau",
+        "options": [ "Wolf", "Sheep", "Bird", "Mouse" ],
+        "answer": "Bird"
+    },
+    {
+        "question": "Soleil",
+        "options": [ "Moon", "Star", "Sun", "Planet" ],
+        "answer": "Sun"
+    },
+    {
+        "question": "Fleur",
+        "options": [ "Field", "Flower", "Grass", "Leaf" ],
+        "answer": "Flower"
+    },
+    {
+        "question": "École",
+        "options": [ "Church", "House", "Shop", "School" ],
+        "answer": "School"
+    },
+    {
+        "question": "Voiture",
+        "options": [ "Bike", "Car", "Boat", "Plane" ],
+        "answer": "Car"
+    },
+    {
+        "question": "Eau",
+        "options": [ "Air", "Fire", "Earth", "Water" ],
+        "answer": "Water"
+    },
+    {
+        "question": "Arbre",
+        "options": [ "Bush", "Forest", "Tree", "Grass" ],
+        "answer": "Tree"
+    },
+    {
+        "question": "Neige",
+        "options": [ "Rain", "Snow", "Ice", "Wind" ],
+        "answer": "Snow"
+    },
+    {
+        "question": "Chanson",
+        "options": [ "Film", "Book", "Song", "Game" ],
+        "answer": "Song"
+    }
+]

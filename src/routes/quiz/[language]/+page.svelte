@@ -60,7 +60,7 @@
             {#if hasNextQuestion}
             <div class='upsilon'>
                 <button 
-                    class='btn btn-dark'
+                    class='btn btn-dark next-question-button'
                     onclick={loadNextQuestion}
                 >
                     Next Question
@@ -112,6 +112,10 @@
 
     .incorrect {
         color: #FF006A;
+    }
+
+    .next-question-button {
+        font-size: 1.5rem;
     }
 
     .error {
