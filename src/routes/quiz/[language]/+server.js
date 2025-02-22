@@ -4,6 +4,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import germanQuestions from './questions/German.json';
 import dutchQuestions from './questions/Dutch.json';
 import portugueseQuestions from './questions/Portuguese.json';
+import frenchQuestions from './questions/French.json';
 
 export async function GET({ params, url }) {
     const { searchParams } = url;
@@ -55,6 +56,7 @@ export async function GET({ params, url }) {
             german: germanQuestions,
             dutch: dutchQuestions,
             portuguese: portugueseQuestions,
+            french: frenchQuestions,
         }[language];
     }
 

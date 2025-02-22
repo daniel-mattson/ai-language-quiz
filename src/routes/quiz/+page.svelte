@@ -3,7 +3,7 @@
 
     // Enter a valid API Key here. One can be obtained from https://aistudio.google.com/apikey
 
-    const languages = ['German', 'Dutch', 'Portuguese'];
+    const languages = ['German', 'Dutch', 'Portuguese', 'French'];
 
     let language = $state(languages[0]);
     let useSavedQuestions = $state(false);
@@ -32,7 +32,9 @@
             Gemini API Key:
             <input class='text-input' type='text' disabled={useSavedQuestions} bind:value={key} name='key' />
             <br />
-            <span class='info'>API Keys can be obtained from <a href='https://aistudio.google.com/apikey' target='_blank' rel='noopener noreferrer'>aistudio.google.com/apikey</a></span>
+            <span class='info'>
+                API Keys can be obtained from <a href='https://aistudio.google.com/apikey' target='_blank' rel='noopener noreferrer'>aistudio.google.com/apikey</a>
+            </span>
         </label>
         <br />
         <label>
@@ -52,19 +54,19 @@
     .quiz-settings {
         align-items: center;
         font-size: 1.5rem;
-        color: black;
     }
 
     .select-language {
-        margin-top: auto;
+        margin-right: auto;
     }
 
     .select {
         font-size: 1.5rem;
+        color: var(--color-text);
     }
 
     .use-saved-questions {
-        margin-top: auto;
+        margin-top: 1rem;
     }
 
     .info {
@@ -77,7 +79,12 @@
     }
 
     .disabled-label {
-        color: rgba(0, 0, 0, 0.5)
+        color: rgba(0, 0, 0, 0.3);
+    }
+
+    .disabled-label a {
+        color: rgba(0, 0, 0, 0.3);
+        color: rgba(11, 68, 239, 0.3)
     }
 
     .text-input-label {
@@ -89,6 +96,6 @@
     }
 
     .start-button {
-        margin-top: auto;
+        margin-top: 2rem;
     }
 </style>

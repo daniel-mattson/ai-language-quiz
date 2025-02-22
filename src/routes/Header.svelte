@@ -6,7 +6,7 @@
 
 <header>
 	<div class="corner">
-		<a href="https://svelte.dev/docs/kit">
+		<a href="https://svelte.dev/docs/kit" target='_blank' rel='noopener noreferrer'>
 			<img src={logo} alt="SvelteKit" />
 		</a>
 	</div>
@@ -29,7 +29,7 @@
 	</nav>
 
 	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
+		<a href="https://github.com/daniel-mattson/ai-language-quiz" target='_blank' rel='noopener noreferrer'>
 			<img src={github} alt="GitHub" />
 		</a>
 	</div>
